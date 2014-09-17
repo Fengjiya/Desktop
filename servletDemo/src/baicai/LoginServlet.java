@@ -10,8 +10,9 @@ import javax.servlet.ServletException;
 
 import java.sql.*;
 
-@WebServlet(name="login", urlPatterns={"/login"} )
-
+//"/login.jsp" is the URL where request form
+@WebServlet(name="LoginServlet", urlPatterns={"/login"} )
+//LoginServlet's name is "login"
 public class LoginServlet extends HttpServlet //At first i forgot to extends HttpServlet
 {
 	//To response client's request
@@ -29,21 +30,18 @@ public class LoginServlet extends HttpServlet //At first i forgot to extends Htt
 			//Use javaBean to deal user's request
 			DbDao dd = new DbDao("com.jdbc.mysql.Driver", 
 					"jdbc:mysql://localhost:3306/test", "root", "12345");
-			ResultSet rs = dd.query("select pass from user_table" + 
+			ResultSet rs = dd.query("select pass from table1" + 
 					"where name = ?", username );
 			
 			if( rs.next())
 			{
 				if( rs.getString("pass").equals(pass))
 				{
-					//get session
-					HttpSession session = request.getSession(true);
-					//set session's param to trace user's session state
-					session.setAttribute("name", username);
-					//get the forward target
-					rd = request.getRequestDispatcher("/welcom.jsp");
-					//retransmit request
-					rd.forward(request, response);
+					
+					HttpSession session = request.getSession(true);//get session
+					session.setAttribute("name", username);//set session's param to trace user's session state
+					rd = request.getRequestDispatcher("/welcom.jsp");//get the forward target
+					rd.forward(request, response);//retransmit request
 				}
 				else
 				{

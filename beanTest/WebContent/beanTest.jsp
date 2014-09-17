@@ -13,6 +13,6 @@
 
 <jsp:getProperty name="p1" property="name" /><br/>
 <jsp:getProperty name="p1" property="age" /><br/>
- <% out.println("This is beanTest1!   " + new java.util.Date());%>
+ <% out.println("This is beanTest1!   " + "<br/>Data:  " +  new java.util.Date());%>
 </body>
 </html>

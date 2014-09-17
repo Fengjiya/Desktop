@@ -22,6 +22,6 @@
 	<%=p1.getName() %><br/>
 	<%=p1.getAge() %><br/>
 	
-	<%out.println( "Now the time is:" + new java.util.Date() ); %>
+	<%out.println( "Date:  " + new java.util.Date() ); %>
 </body>
 </html>

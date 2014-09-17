@@ -9,17 +9,18 @@
 <body>
 <span style="color:red;font-weight:bold">
 	<%
-	if( request.getAttribute("err") != null )
+	if( request.getAttribute("errMsg") != null )
 	{
-		out.println( request.getAttribute("err") + "<br/");
+		out.println( request.getAttribute("errMsg") + "<br/");
 	}
 	%>
 </span>
-
-<form id="login" method="post" action="login">
+<!-- form's id="login1" name="loginPage" method="post" action="login" -->
+<form id="login1"  name="loginPage" method="post" action="login">
 UserName:<input type="text" name="username"/><br/>
 PassWord:<input type="password" name="pass"/><br/>
 <input type="submit" value="Login"/><br/>
 </form>
+<p><b>Note:</b> The characters in a password field are masked (shown as asterisks or circles).</p>
 </body>
 </html>

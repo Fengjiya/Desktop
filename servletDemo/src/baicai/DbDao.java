@@ -93,24 +93,24 @@ public class DbDao
 	//Insert data
 	public ResultSet query(String sql,Object... args) throws Exception
 	{
-		PreparedStatement pstm = getConnection().prepareStatement(sql);
+		PreparedStatement pstmt = getConnection().prepareStatement(sql);
 		for( int i = 0; i < args.length; i++ )
 		{
-			pstm.setObject( i+1, args[i]);
+			pstmt.setObject( i+1, args[i]);
 		}
-		return pstm.executeQuery();
+		return pstmt.executeQuery();
 	}
 	
 	//update data
 	public void modify(String sql, Object... args) throws Exception
 	{
-		PreparedStatement pstm = getConnection().prepareStatement(sql);
+		PreparedStatement pstmt = getConnection().prepareStatement(sql);
 		for( int i = 0; i< args.length; i++ )
 		{
-			pstm.setObject(i+1, args[i]);
+			pstmt.setObject(i+1, args[i]);
 		}
-		pstm.executeUpdate();
-		pstm.close();
+		pstmt.executeUpdate();
+		pstmt.close();
 	}
 	
 	//To close the connection

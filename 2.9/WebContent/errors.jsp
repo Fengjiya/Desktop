@@ -7,6 +7,6 @@
 </head>
 <body>
 异常类型是:<%=exception.getClass() %><br/>
-异常信息是:<%=exception.getMessage() %><br/>
+异常信息是:<%=exception.getMessage()%><br/>
 </body>
 </html>
